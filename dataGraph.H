@@ -2,8 +2,9 @@
 #define __APOLO__DATA_GRAPH__H
 
 #include "mathplot.h"
-#include <vector>
-#include "Python.h"
+
+
+using namespace std;
 
 enum TypeData
 {
@@ -18,13 +19,15 @@ public:
 	DataGraph();
 	~DataGraph();
 
-template <class T> void enterData(TypeData _type, T data);
+template<class T> 
+void enterData(TypeData _type, T data);
 
 private:
-	TypeData data;
-	vector<double> position;
-	vector<double> velocity;
-	vector<double> acceleration;
+	TypeData _data;
+	vector<double> pos;
+	vector<double> vel;
+	vector<double> acel;
+
 
 };
 
