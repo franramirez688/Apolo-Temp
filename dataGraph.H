@@ -4,8 +4,6 @@
 #include "mathplot.h"
 
 
-using namespace std;
-
 enum TypeData
 {
 	POSITION,
@@ -19,6 +17,7 @@ public:
 	DataGraph();
 	~DataGraph();
 
+
 template<class T> 
 void enterData(TypeData _type, T data);
 
@@ -27,7 +26,6 @@ private:
 	vector<double> pos;
 	vector<double> vel;
 	vector<double> acel;
-
 
 };
 

@@ -133,7 +133,6 @@
 #define ID_CHOOSESYSREFERENCE 4042
 #define ID_CHOOSETOMOVE 4043
 
-
 // Define  for wxwigets reseved 50XX
 //wxID_EXIT 5006
 //wxID_ABOUT 5013

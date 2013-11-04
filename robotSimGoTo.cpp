@@ -4,8 +4,13 @@
 BEGIN_EVENT_TABLE(RobotSimGoTo, wxFrame)
 	EVT_BUTTON(ID_ACCEPT, RobotSimGoTo::OnButton)
 	EVT_BUTTON(ID_CANCEL, RobotSimGoTo::OnButton)
+<<<<<<< HEAD
 	//EVT_BUTTON(ID_TVP, RobotSimGoTo::OnButton)
 	//EVT_BUTTON(ID_CPT, RobotSimGoTo::OnButton)
+=======
+	EVT_BUTTON(ID_TVP, RobotSimGoTo::OnButton)
+	EVT_BUTTON(ID_CPT, RobotSimGoTo::OnButton)
+>>>>>>> a94602aba03695341565f1381f6f5b9293834069
 	EVT_CLOSE(RobotSimGoTo::OnClose)
 END_EVENT_TABLE()
 
@@ -24,7 +29,6 @@ RobotSimGoTo::RobotSimGoTo(wxWindow *parent, wxWindowID id,const wxString& title
 	
 	wxBoxSizer *parentbox=new wxBoxSizer(wxVERTICAL);
 	wxBoxSizer *childbox=new wxBoxSizer(wxHORIZONTAL);
-	
 	
 //title
 	wxBoxSizer *titlebox = new wxBoxSizer(wxHORIZONTAL);//container
@@ -61,7 +65,6 @@ RobotSimGoTo::RobotSimGoTo(wxWindow *parent, wxWindowID id,const wxString& title
 	inforAll->Add(infor,0,wxEXPAND|wxALL);
 	
 	//tcp orientation
-
 	str.str(string());
 	str1.str(string());
 	Vector3D tcpOrient;
@@ -210,7 +213,6 @@ RobotSimGoTo::RobotSimGoTo(wxWindow *parent, wxWindowID id,const wxString& title
 	parentbox->AddSpacer(20);
 	parentbox->Add(buttonsbox,1,wxEXPAND|wxALL);
 	parentbox->AddSpacer(20);
-
 
 	panel->SetSizer(parentbox);
 	parentbox->SetSizeHints(this);

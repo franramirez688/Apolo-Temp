@@ -12,6 +12,7 @@ DataGraph::~DataGraph()
 
 
 
+
 }
 
 template<class T> 
@@ -33,4 +34,5 @@ void DataGraph::enterData(TypeData _type, T data)
 
 
 	//}
+
 }
