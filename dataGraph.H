@@ -23,9 +23,9 @@ void enterData(TypeData _type, T data);
 
 private:
 	TypeData _data;
-	vector<double> pos;
-	vector<double> vel;
-	vector<double> acel;
+	std::vector<double> pos;
+	std::vector<double> vel;
+	std::vector<double> acel;
 
 };
 

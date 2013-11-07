@@ -4,13 +4,8 @@
 BEGIN_EVENT_TABLE(RobotSimGoTo, wxFrame)
 	EVT_BUTTON(ID_ACCEPT, RobotSimGoTo::OnButton)
 	EVT_BUTTON(ID_CANCEL, RobotSimGoTo::OnButton)
-<<<<<<< HEAD
 	//EVT_BUTTON(ID_TVP, RobotSimGoTo::OnButton)
 	//EVT_BUTTON(ID_CPT, RobotSimGoTo::OnButton)
-=======
-	EVT_BUTTON(ID_TVP, RobotSimGoTo::OnButton)
-	EVT_BUTTON(ID_CPT, RobotSimGoTo::OnButton)
->>>>>>> a94602aba03695341565f1381f6f5b9293834069
 	EVT_CLOSE(RobotSimGoTo::OnClose)
 END_EVENT_TABLE()
 
@@ -113,7 +108,10 @@ RobotSimGoTo::RobotSimGoTo(wxWindow *parent, wxWindowID id,const wxString& title
 
 //Articular values
 
-	wxStaticBoxSizer *_joints=new wxStaticBoxSizer(wxVERTICAL,panel,wxT("ARTICULAR"));
+	wxStaticBoxSizer *_joints=new wxStaticBoxSizer(wxVERTICAL,panel);
+	wxStaticBoxSizer *all_joints=new wxStaticBoxSizer(wxHORIZONTAL,panel,wxT("ARTICULAR"));
+	int aux_counter = 0;
+
 	int numJoints = itemnode->pointer.robotsim->getNumJoints();
 
 	for(int i=0;i<numJoints;i++)
@@ -124,10 +122,20 @@ RobotSimGoTo::RobotSimGoTo(wxWindow *parent, wxWindowID id,const wxString& title
 
 		listJoints.push_back(joint);
 		_joints->Add(joint,0,wxEXPAND|wxALL,5);
-		_joints->AddSpacer(5);		
-	}
-	for(int i=0;i<numJoints;i++)
-	{
+		_joints->AddSpacer(5);
+		aux_counter++;
+		if (aux_counter==3)
+		{
+			aux_counter=0;
+			all_joints->Add(_joints,0,wxEXPAND|wxALL);
+			_joints=new wxStaticBoxSizer(wxVERTICAL,panel);	
+		}
+		else if (i==numJoints)
+			all_joints->Add(_joints,0,wxEXPAND|wxALL);
+	//}
+
+	//for(int i=0;i<numJoints;i++)
+	//{
 		double max,min,val;
 		itemnode->pointer.robotsim->getJointLimits(i,max,min);
 		listJoints[i]->setProperties(min,max,true);
@@ -135,7 +143,7 @@ RobotSimGoTo::RobotSimGoTo(wxWindow *parent, wxWindowID id,const wxString& title
 		listJoints[i]->setValue(val);
 	}
 
-	targetAll->Add(_joints,0,wxEXPAND|wxALL);
+	targetAll->Add(all_joints,0,wxEXPAND|wxALL);
 	childRightbox->Add(targetAll,0,wxEXPAND|wxALL);
 
 

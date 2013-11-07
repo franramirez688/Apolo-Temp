@@ -3,10 +3,6 @@
 
 #include "bitmaps/goto.xpm"
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a94602aba03695341565f1381f6f5b9293834069
 #include "apoloPanel.h"
 #include "nodeTree.h"
 #include "manageWindows.h"
